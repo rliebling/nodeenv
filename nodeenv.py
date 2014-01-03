@@ -399,7 +399,7 @@ def install_npm(env_dir, src_dir, opt):
                 extra=dict(continued=True))
     cmd = [
         '. %s && curl --silent %s | '
-        'clean=%s npm_install=%s bash && deactivate_node' % (
+        'npm_debug=true clean=%s npm_install=%s bash && deactivate_node' % (
             pipes.quote(join(env_dir, 'bin', 'activate')),
             'https://npmjs.org/install.sh',
             'no' if opt.no_npm_clean else 'yes',
