@@ -41,7 +41,7 @@ def create_logger():
     """
     # create logger
     logger = logging.getLogger("nodeenv")
-    logger.setLevel(logging.INFO)
+    logger.setLevel(logging.DEBUG)
 
     # monkey patch
     def emit(self, record):
@@ -52,7 +52,7 @@ def create_logger():
     logging.StreamHandler.emit = emit
 
     # create console handler and set level to debug
-    ch = logging.StreamHandler()
+    ch = logging.StreamHandler(sys.stdout)
     ch.setLevel(logging.DEBUG)
 
     # create formatter
